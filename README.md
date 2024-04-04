@@ -1,36 +1,62 @@
 
-# CSE 535 Mobile Computing Project 1
-The idea of this project is to create an Android Application that lets users click any picture and
-upload the image to a server. As already mentioned, this project has two parts, a) Building the
-Android Application with which the users can click the picture and select the category of the
-image, and b) Creating a server that will help store the application based on the category
-selected.
-Project 1 will be individual. Everyone is expected to submit a video of the android application
-working along with the source code. This application will be reused for Project 2 and Project 3.
-Deliverables:
-1) Mobile Application: Develop an android or iOS application that opens the back camera
-and lets the user click an image. This application then sends the image over to the
-server along with the category information to store in the server. The application should
-have at least two pages. Page1 should ask the user if the user wants to click a picture or
-not. The second page should ask the user to input the category of the image the user
-just clicked from a dropdown item list. This page should also have an upload button that
-sends the image and the information to the server.
-2) Server Side: Develop your local server on your computer. It is recommended that you
-use Flask to build your local server. The server needs to store the images in the
-respective folders of each image category.
-Submission:
-1) Source Code of both Application and server.
-2) Video of working demonstration of the application and the server.
-3) A 1-2 pages report explaining the technical workings of your application.
-All the above things need to be zipped together and uploaded on Canvas.
-Important Dates for Project 1:
-1) Due Date to Submit: 09/07/2022 at 11.59 pm (Arizona Time)
+# Mobile Image Capture and Storage 
 
-> Notes:
-  > We will be taking a Zero Tolerance Policy toward Plagiarism. So, please submit only your
-  > original work. Violations of the University Academic Integrity policy will not be ignored.
-  > Penalties include reduced or no credit for submitted work, a failing grade in the class, a note on
-  > your official transcript that shows you were punished for cheating, suspension, expulsion, and
-  > revocation of already awarded degrees. The university's academic integrity policy can be found
-  > at https://provost.asu.edu/academic-integrity.
-  > Thank You
+This project consists of an Android app frontend and Python Flask backend that work together to allow capturing, labeling and storing images from mobile devices.
+
+## Features
+
+- Android app to capture images and select category label
+- Images are uploaded wirelessly to backend Flask server 
+- Backend stores images organized by category
+- Image files are named based on UTC timestamp
+
+## Architecture
+
+The system is split into two main components:
+
+### Android App (Frontend)
+- Built using Android Studio[1]
+- Captures images using device camera
+- Allows user to select category for image using a Spinner view
+- Uploads image to backend server using Retrofit
+- Displays loading panel during upload for better UX
+- Shows toast messages to indicate upload success or failure
+
+### Flask Server (Backend) 
+- Runs on Python using Flask web framework
+- Receives images and category from Android app via POST request
+- Stores images in folder matching selected category
+- Names image files based on UTC timestamp 
+- Validates image is JPG, JPEG or PNG format
+- Returns success or error response to Android app
+
+## App Workflow
+
+1. User launches app and taps Capture button
+2. Default camera app opens to take picture
+3. After capturing, user selects image category from dropdown
+4. User taps Upload to send image and category to backend
+5. App shows loading panel during upload process
+6. Backend validates and stores image in matching category folder
+7. App displays toast message indicating upload success or failure
+8. User can tap Retake to capture image again
+
+## Getting Started
+
+To set up the development environment:
+
+1. Clone this repository
+2. Open the `frontend` directory in Android Studio 
+3. Edit the server URL in `CloudService.java` to point to your backend
+4. Run the Flask server locally:
+   ```
+   cd backend
+   pip install -r requirements.txt
+   python app.py
+   ```
+5. Build and run the Android app on a device or emulator
+
+Ensure the Android device is on the same local network as the backend server. The Android app will capture and upload images to the configured server URL.
+
+
+
