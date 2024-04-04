@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">Capture Cloud</string>
+    <string name="button_capture_text">Capture</string>
+    <string name="cache_dir">cache</string>
+    <string name="temp_image_name">cachedImage.jpg</string>
+    <string name="authorities">com.example.capturecloud.fileprovider</string>
+    <string name="upload_activity_label">Upload Activity</string>
+    <string name="upload_button_label">Upload</string>
+    <string name="retake_button_label">Retake</string>
+    <string name="image_preview_content">Image Preview</string>
+    <string name="retake_btn_label">Retake</string>
+    <string name="upload_btn_label">Upload</string>
+    <string name="hostname">http://192.168.0.216:5000</string>
+    <string name="uploading_message">Uploading Image</string>
+    <string name="upload_success_message">Uploaded Successfully!</string>
+    <string name="upload_fail_message">Upload Failed! Please try again</string>
+    <string-array name="categories_array">
+        <item>Personal</item>
+        <item>Family</item>
+        <item>Nature</item>
+        <item>Technology</item>
+        <item>Food</item>
+        <item>Animals</item>
+    </string-array>
+</resources>
